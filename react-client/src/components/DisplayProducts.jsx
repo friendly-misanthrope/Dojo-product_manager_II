@@ -7,7 +7,7 @@ const DisplayProducts = (props) => {
   const {allProducts, setAllProducts} = props
 
   useEffect(() => {
-    axios.get('http://172.19.219.207:800/api/products')
+    axios.get('http://172.19.219.207:8000/api/products')
       .then((res) => {
         setAllProducts(res.data)
       })
@@ -17,14 +17,15 @@ const DisplayProducts = (props) => {
   return (
     <div className="display-products">
       {
-        allProducts.map((product) => {
+        allProducts.map((product) => (
           <div className="each-product" key={product._id}>
             <h2>{product.title}</h2>
             <p><b>Title: </b>{product.title}</p>
             <p><b>Price: </b>{product.price}</p>
             <p><b>Description: </b>{product.description}</p>
+            <Link to={`/products/${product._id}`}>View Product</Link>
           </div>
-        })
+        ))
       }
     </div>
   );

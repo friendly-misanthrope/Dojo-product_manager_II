@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import DisplayProducts from './components/DisplayProducts';
 import ProductForm from './components/ProductForm'
+import DisplayOneProduct from './components/DisplayOneProduct'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path='/' element={<DisplayProducts allProducts={allProducts} setAllProducts={setAllProducts} />} />
         <Route path='/products/new' element={<ProductForm />} />
+        <Route path='/products/:id' element={<DisplayOneProduct />} />
       </Routes>
     </div>
   );

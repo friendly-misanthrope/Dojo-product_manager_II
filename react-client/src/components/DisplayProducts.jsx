@@ -16,7 +16,16 @@ const DisplayProducts = (props) => {
 
   return (
     <div className="display-products">
-      
+      {
+        allProducts.map((product) => {
+          <div className="each-product" key={product._id}>
+            <h2>{product.title}</h2>
+            <p><b>Title: </b>{product.title}</p>
+            <p><b>Price: </b>{product.price}</p>
+            <p><b>Description: </b>{product.description}</p>
+          </div>
+        })
+      }
     </div>
   );
 }

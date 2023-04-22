@@ -21,3 +21,10 @@ module.exports.createProduct = (req, res) => {
     .catch(err => res.status(400).json(err))
 }
 
+// Get product by id
+module.exports.findOneProduct = (req, res) => {
+  Product.findOne({_id: req.params.id})
+    .then(oneProduct => res.json(oneProduct))
+    .catch(err => console.log(err))
+}
+

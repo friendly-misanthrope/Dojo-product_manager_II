@@ -12,7 +12,7 @@ const DisplayProducts = (props) => {
         setAllProducts(res.data)
       })
       .catch((err) => console.log(err))
-  }, [setAllProducts])
+  }, [])
 
   return (
     <div className="display-products">
@@ -20,7 +20,6 @@ const DisplayProducts = (props) => {
         allProducts.map((product) => (
           <div className="each-product" key={product._id}>
             <h2>{product.title}</h2>
-            <p><b>Title: </b>{product.title}</p>
             <p><b>Price: </b>{product.price}</p>
             <p><b>Description: </b>{product.description}</p>
             <Link to={`/products/${product._id}`}>View Product</Link>
